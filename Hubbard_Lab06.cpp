@@ -25,17 +25,18 @@ int main() {
 	Image foregroundImage;
 	foregroundImage = foregroundTex.copyToImage();
 	Vector2u sz = backgroundImage.getSize();
+	Color greenScreen = foregroundImage.getPixel(0, 0);
 	for (int y = 0; y < sz.y; y++) {
 		for (int x = 0; x < sz.x; x++) {
 			// These two loops will run the code inside for each pixel in the background image
 				// You can access the current pixel at x,y like so:
-				Color greenScreen = foregroundImage.getPixel(0, 0);
+				
 				Color currentPixel = foregroundImage.getPixel(x, y);
 				Color backGround = backgroundImage.getPixel(x, y);
+				
 				if (currentPixel.g == greenScreen.g)
 				{
 					foregroundImage.setPixel(x, y, backGround);
-					//cout << "true";
 				}
 			// Color objects store the individual channel values like example.r example.g and example.b
 		}
